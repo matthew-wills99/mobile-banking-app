@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/login_background_color"
+    tools:context=".LoginActivity">
+
+    <RelativeLayout
+        android:id="@+id/loginRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:paddingBottom="25dp">
+
+        <ImageView
+            android:id="@+id/loginImageIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:contentDescription="Logo"
+            android:src="@drawable/login_logo"
+            android:layout_centerHorizontal="true"/>
+        
+        <TextView
+            android:id="@+id/loginTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Login"
+            android:textColor="@color/text_color"
+            android:textSize="32dp"
+            android:layout_below="@id/loginImageIcon"/>
+
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/loginPager"
+            android:layout_width="match_parent"
+            android:layout_height="310dp"
+            android:layout_alignParentBottom="true"/>
+
+        <LinearLayout
+            android:id="@+id/loginPagerIndicatorLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@id/loginPager"
+            android:layout_centerInParent="true"
+            android:paddingBottom="2dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp">
+
+                <View
+                    android:id="@+id/emailBackground"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/login_icon_inactive" />
+
+                <ImageView
+                    android:id="@+id/emailIcon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="Email"
+                    android:src="@drawable/ic_email"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:id="@+id/cardBackground"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/login_icon_inactive"/>
+
+                <ImageView
+                    android:id="@+id/cardIcon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="Card"
+                    android:src="@drawable/ic_card"/>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
