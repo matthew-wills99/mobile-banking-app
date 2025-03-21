@@ -11,7 +11,7 @@ public class LoginViewModel extends ViewModel {
     private final MutableLiveData<String> passwordLiveData = new MutableLiveData<>();
 
     // Card Login
-    private final MutableLiveData<String> accountNumberLiveData = new MutableLiveData<>();
+    private final MutableLiveData<String> cardNumberLiveData = new MutableLiveData<>();
     private final MutableLiveData<String> expiryMonthLiveData = new MutableLiveData<>();
     private final MutableLiveData<String> expiryYearLiveData = new MutableLiveData<>();
     private final MutableLiveData<String> cardCVVLiveData = new MutableLiveData<>();
@@ -27,9 +27,9 @@ public class LoginViewModel extends ViewModel {
         passwordLiveData.setValue(password);
     }
 
-    public void setAccountNumber(String accountNumber)
+    public void setCardNumber(String cardNumber)
     {
-        accountNumberLiveData.setValue(accountNumber);
+        cardNumberLiveData.setValue(cardNumber);
     }
 
     public void setExpiryMonth(String expiryMonth)
@@ -62,9 +62,9 @@ public class LoginViewModel extends ViewModel {
         return passwordLiveData;
     }
 
-    public LiveData<String> getAccountNumber()
+    public LiveData<String> getCardNumber()
     {
-        return accountNumberLiveData;
+        return cardNumberLiveData;
     }
 
     public LiveData<String> getExpiryMonth()

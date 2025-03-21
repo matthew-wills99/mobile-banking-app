@@ -8,6 +8,7 @@
     android:layout_marginStart="16dp"
     android:background="@drawable/card_login_fragment_background">
 
+    <!-- Card Number Input -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/cardNumberInputLayout"
         android:layout_width="match_parent"
@@ -16,6 +17,7 @@
         android:hint="Card Number"
         app:boxStrokeColor="@color/card_accent_color"
         app:boxStrokeWidth="2dp"
+        app:errorEnabled="true"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -23,9 +25,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:maxLength="16" /> <!-- 16 digits for card number -->
+            android:maxLength="16"
+            android:importantForAutofill="yes"
+            android:autofillHints="creditCardNumber" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <!-- Card Info Input (Month, Year, CVV) -->
     <LinearLayout
         android:id="@+id/cardInfoInputLayout"
         android:layout_width="match_parent"
@@ -35,6 +40,7 @@
         android:orientation="horizontal"
         android:weightSum="3">
 
+        <!-- Month Input -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/monthInputLayout"
             android:layout_width="0dp"
@@ -44,6 +50,7 @@
             android:hint="Month"
             app:boxStrokeColor="@color/card_accent_color"
             app:boxStrokeWidth="2dp"
+            app:errorEnabled="true"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -51,9 +58,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:maxLength="2" /> <!-- 2 digits for month -->
+                android:maxLength="2"
+                android:importantForAutofill="yes"
+                android:autofillHints="creditCardExpirationMonth" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Year Input -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/yearInputLayout"
             android:layout_width="0dp"
@@ -63,6 +73,7 @@
             android:hint="Year"
             app:boxStrokeColor="@color/card_accent_color"
             app:boxStrokeWidth="2dp"
+            app:errorEnabled="true"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -70,9 +81,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:maxLength="2" /> <!-- 2 digits for year -->
+                android:maxLength="2"
+                android:importantForAutofill="yes"
+                android:autofillHints="creditCardExpirationYear" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- CVV Input -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/cvvInputLayout"
             android:layout_width="0dp"
@@ -81,6 +95,7 @@
             android:hint="CVV"
             app:boxStrokeColor="@color/card_accent_color"
             app:boxStrokeWidth="2dp"
+            app:errorEnabled="true"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -88,10 +103,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:maxLength="3" /> <!-- 3 digits for CVV -->
+                android:maxLength="3"
+                android:importantForAutofill="yes"
+                android:autofillHints="creditCardSecurityCode" />
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
+    <!-- PIN Input -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/pinInputLayout"
         android:layout_width="120dp"
@@ -101,6 +119,7 @@
         android:hint="PIN"
         app:boxStrokeColor="@color/card_accent_color"
         app:boxStrokeWidth="2dp"
+        app:errorEnabled="true"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -108,9 +127,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberPassword"
-            android:maxLength="4" /> <!-- 4 digits for PIN -->
+            android:maxLength="4"
+            android:importantForAutofill="yes"
+            android:autofillHints="creditCardNumber" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <!-- Submit Button -->
     <Button
         android:id="@+id/submitButton"
         android:layout_width="wrap_content"
@@ -121,5 +143,4 @@
         android:text="Submit"
         android:textColor="@color/text_color"
         android:backgroundTint="@color/card_accent_color"/>
-
 </RelativeLayout>

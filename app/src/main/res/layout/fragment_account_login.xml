@@ -8,6 +8,7 @@
     android:layout_marginEnd="16dp"
     android:background="@drawable/account_login_fragment_background">
 
+    <!-- Email Input -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailInputLayout"
         android:layout_width="match_parent"
@@ -24,9 +25,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:imeOptions="actionNext" />
+            android:imeOptions="actionNext"
+            android:importantForAutofill="yes"
+            android:autofillHints="email"
+            android:maxLines="1"
+            android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <!-- Password Input -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordInputLayout"
         android:layout_width="match_parent"
@@ -44,9 +50,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:imeOptions="actionDone" />
+            android:imeOptions="actionDone"
+            android:importantForAutofill="yes"
+            android:autofillHints="password"
+            android:maxLines="1"
+            android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <!-- Submit Button -->
     <Button
         android:id="@+id/submitButton"
         android:layout_width="wrap_content"
@@ -56,6 +67,5 @@
         android:layout_marginTop="24dp"
         android:text="Submit"
         android:textColor="@color/text_color"
-        android:backgroundTint="@color/account_accent_color"/>
-
+        android:backgroundTint="@color/account_accent_color" />
 </RelativeLayout>
