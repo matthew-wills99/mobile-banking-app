@@ -1,7 +1,5 @@
 package com.example.comp4200project;
 
-import com.example.comp4200project.Utils.LoginType;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
@@ -12,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -23,17 +22,10 @@ public class CardLoginFragment extends Fragment {
 
     private LoginViewModel loginViewModel;
 
-    private Button submitButton;
-
-    public interface OnSubmitButtonClickListener
-    {
-        void onSubmitButtonClicked(Utils.LoginType loginType, LoginViewModel loginViewModel);
-    }
-
     private AccountLoginFragment.OnSubmitButtonClickListener listener;
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         if (context instanceof AccountLoginFragment.OnSubmitButtonClickListener) {
             listener = (AccountLoginFragment.OnSubmitButtonClickListener) context;
@@ -54,7 +46,7 @@ public class CardLoginFragment extends Fragment {
         TextInputEditText expiryYearInput = view.findViewById(R.id.yearInput);
         TextInputEditText cardCVVInput = view.findViewById(R.id.cvvInput);
         TextInputEditText pinInput = view.findViewById(R.id.pinInput);
-        submitButton = view.findViewById(R.id.submitButton);
+        Button submitButton = view.findViewById(R.id.submitButton);
 
         cardNumberInput.addTextChangedListener(new TextWatcher()
         {
@@ -140,7 +132,6 @@ public class CardLoginFragment extends Fragment {
 
 
             if (cardNumber.isEmpty() || expiryMonth.isEmpty() || expiryYear.isEmpty() || cardCVV.isEmpty() || cardPin.isEmpty()) {
-                // Show an error message
                 Toast.makeText(requireContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show();
             }
             else

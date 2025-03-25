@@ -2,6 +2,9 @@ package com.example.comp4200project;
 
 import com.example.comp4200project.Utils.LoginType;
 
+import android.app.AlertDialog;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
@@ -78,6 +81,7 @@ public class LoginActivity extends AppCompatActivity implements AccountLoginFrag
                 if(dbHelper.checkLoginWithEmail(loginViewModel.getEmail().getValue(), loginViewModel.getPassword().getValue()))
                 {
                     Log.d("Login", "Successfully logged in with email.");
+                    showStaySignedInDialog();
                 }
                 else
                 {
@@ -99,6 +103,7 @@ public class LoginActivity extends AppCompatActivity implements AccountLoginFrag
                         loginViewModel.getCardPin().getValue()))
                 {
                     Log.d("Login", "Successfully logged in with card.");
+                    showStaySignedInDialog();
                 }
                 else
                 {
@@ -123,5 +128,40 @@ public class LoginActivity extends AppCompatActivity implements AccountLoginFrag
             cardIcon.setBackgroundResource(R.drawable.login_card_icon_active);
             //Toast.makeText(this, "Selected Card Active", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void showStaySignedInDialog()
+    {
+        new AlertDialog.Builder(this)
+                .setTitle("Stay Signed In?")
+                .setMessage("Do you want to stay signed in?")
+                .setPositiveButton("Yes", (dialog, which) -> {
+                    Intent intent = new Intent(this, SetPinActivity.class);
+                    startActivity(intent);
+                    finish();
+                })
+                .setNegativeButton("No", (dialog, which) -> {
+                    Intent intent = new Intent(this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                })
+                .setCancelable(false)
+                .show();
+    }
+
+    private void saveStaySignedInPreference(boolean staySignedIn)
+    {
+        SharedPreferences sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("StaySignedIn", staySignedIn);
+        editor.apply();
+    }
+
+    private void savePin(String pin)
+    {
+        SharedPreferences sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("UserPIN", pin);
+        editor.apply();
     }
 }

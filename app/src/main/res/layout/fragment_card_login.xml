@@ -30,7 +30,6 @@
             android:autofillHints="creditCardNumber" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Card Info Input (Month, Year, CVV) -->
     <LinearLayout
         android:id="@+id/cardInfoInputLayout"
         android:layout_width="match_parent"
@@ -40,7 +39,6 @@
         android:orientation="horizontal"
         android:weightSum="3">
 
-        <!-- Month Input -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/monthInputLayout"
             android:layout_width="0dp"
@@ -63,7 +61,6 @@
                 android:autofillHints="creditCardExpirationMonth" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Year Input -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/yearInputLayout"
             android:layout_width="0dp"
@@ -86,7 +83,6 @@
                 android:autofillHints="creditCardExpirationYear" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- CVV Input -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/cvvInputLayout"
             android:layout_width="0dp"
@@ -109,7 +105,6 @@
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
-    <!-- PIN Input -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/pinInputLayout"
         android:layout_width="120dp"
@@ -132,7 +127,6 @@
             android:autofillHints="creditCardNumber" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Submit Button -->
     <Button
         android:id="@+id/submitButton"
         android:layout_width="wrap_content"

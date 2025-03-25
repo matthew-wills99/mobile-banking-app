@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -22,7 +23,6 @@ import java.util.Objects;
 public class AccountLoginFragment extends Fragment {
 
     private LoginViewModel loginViewModel;
-    private Button submitButton;
 
     public interface OnSubmitButtonClickListener
     {
@@ -32,7 +32,7 @@ public class AccountLoginFragment extends Fragment {
     private OnSubmitButtonClickListener listener;
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         if (context instanceof OnSubmitButtonClickListener) {
             listener = (OnSubmitButtonClickListener) context;
@@ -50,7 +50,7 @@ public class AccountLoginFragment extends Fragment {
 
         TextInputEditText emailInput = view.findViewById(R.id.emailInput);
         TextInputEditText passwordInput = view.findViewById(R.id.passwordInput);
-        submitButton = view.findViewById(R.id.submitButton);
+        Button submitButton = view.findViewById(R.id.submitButton);
 
         emailInput.addTextChangedListener(new TextWatcher()
         {
@@ -86,7 +86,6 @@ public class AccountLoginFragment extends Fragment {
             String email = Objects.requireNonNull(emailInput.getText()).toString().trim();
             String password = Objects.requireNonNull(passwordInput.getText()).toString().trim();
             if (email.isEmpty() || password.isEmpty()) {
-                // Show an error message
                 Toast.makeText(requireContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show();
             }
             else

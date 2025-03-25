@@ -13,7 +13,7 @@
         android:theme="@style/Theme.COMP4200Project"
         tools:targetApi="31">
         <activity
-            android:name=".LoginActivity"
+            android:name=".SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.COMP4200Project">
             <intent-filter>
@@ -22,6 +22,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".SetPinActivity"/>
+        <activity android:name=".PinVerificationActivity"/>
+        <activity android:name=".ForgotPinActivity"/>
     </application>
 
 </manifest>

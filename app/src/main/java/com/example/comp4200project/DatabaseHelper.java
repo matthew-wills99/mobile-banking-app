@@ -7,11 +7,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    // Database name and version
     private static final String DATABASE_NAME = "BankApp.db";
     private static final int DATABASE_VERSION = 1;
 
-    // Table name and columns
+
     private static final String TABLE_USERS = "users";
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_EMAIL = "email";
@@ -22,7 +21,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_CVV = "cvv";
     private static final String COLUMN_PIN = "pin";
 
-    // Create table query
     private static final String CREATE_TABLE_USERS = "CREATE TABLE " + TABLE_USERS + "("
             + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + COLUMN_EMAIL + " TEXT,"
@@ -49,7 +47,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    // Insert a new user (for initial setup, not for app users)
     public long insertUser(String email, String password, String cardNumber, String expiryMM, String expiryYY, String cvv, String pin) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -65,7 +62,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result;
     }
 
-    // Check login with email and password
     public boolean checkLoginWithEmail(String email, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_USERS,
@@ -79,7 +75,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result;
     }
 
-    // Check login with card details
     public boolean checkLoginWithCard(String cardNumber, String expiryMM, String expiryYY, String cvv, String pin) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_USERS,
