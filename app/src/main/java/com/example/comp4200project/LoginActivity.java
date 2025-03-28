@@ -21,6 +21,8 @@ public class LoginActivity extends AppCompatActivity implements AccountLoginFrag
     private ViewPager2 loginPager;
     private ImageView emailIcon, cardIcon;
 
+    private String email, password, cardNumber, expiryMonth, expiryYear, cardCVV, cardPin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
