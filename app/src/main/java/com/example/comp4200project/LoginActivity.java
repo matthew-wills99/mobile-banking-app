@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Pair;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -20,16 +21,14 @@ public class LoginActivity extends AppCompatActivity implements AccountLoginFrag
     private ViewPager2 loginPager;
     private ImageView emailIcon, cardIcon;
 
-    private String email, password, cardNumber, expiryMonth, expiryYear, cardCVV, cardPin;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
         dbHelper = new DatabaseHelper(this);
-        dbHelper.insertUser("user1@example.com", "password123", "1234567890123456", "12", "25", "123", "1234");
-        dbHelper.insertUser("user2@example.com", "password456", "6543210987654321", "06", "26", "456", "5678");
+        dbHelper.insertUser("user1@example.com", "password123", "John", "Smith", "Alexander", "123 Street Street", "1234567890123456", "12", "25", "123", "1234");
+        dbHelper.insertUser("user2@example.com", "password456", "Jane", "Doe", "Elizabeth", "909 Oak Street", "6543210987654321", "06", "26", "456", "5678");
 
         LoginViewModel loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
 
@@ -78,9 +77,14 @@ public class LoginActivity extends AppCompatActivity implements AccountLoginFrag
                         + loginViewModel.getEmail().getValue() + "|"
                         + loginViewModel.getPassword().getValue());
 
-                if(dbHelper.checkLoginWithEmail(loginViewModel.getEmail().getValue(), loginViewModel.getPassword().getValue()))
+                Pair<Boolean, String> emailResult = dbHelper.checkLoginWithEmail(
+                        loginViewModel.getEmail().getValue(),
+                        loginViewModel.getPassword().getValue());
+
+                if(emailResult.first)
                 {
                     Log.d("Login", "Successfully logged in with email.");
+                    saveUserFirstName(emailResult.second);
                     showStaySignedInDialog();
                 }
                 else
@@ -96,13 +100,17 @@ public class LoginActivity extends AppCompatActivity implements AccountLoginFrag
                         + " CVV: " + loginViewModel.getCardCVV().getValue()
                         + " PIN: " + loginViewModel.getCardPin().getValue());
 
-                if(dbHelper.checkLoginWithCard(loginViewModel.getCardNumber().getValue(),
+                Pair<Boolean, String> cardResult = dbHelper.checkLoginWithCard(
+                        loginViewModel.getCardNumber().getValue(),
                         loginViewModel.getExpiryMonth().getValue(),
                         loginViewModel.getExpiryYear().getValue(),
                         loginViewModel.getCardCVV().getValue(),
-                        loginViewModel.getCardPin().getValue()))
+                        loginViewModel.getCardPin().getValue());
+
+                if(cardResult.first)
                 {
                     Log.d("Login", "Successfully logged in with card.");
+                    saveUserFirstName(cardResult.second);
                     showStaySignedInDialog();
                 }
                 else
@@ -149,19 +157,11 @@ public class LoginActivity extends AppCompatActivity implements AccountLoginFrag
                 .show();
     }
 
-    private void saveStaySignedInPreference(boolean staySignedIn)
+    private void saveUserFirstName(String firstName)
     {
         SharedPreferences sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("StaySignedIn", staySignedIn);
-        editor.apply();
-    }
-
-    private void savePin(String pin)
-    {
-        SharedPreferences sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("UserPIN", pin);
+        editor.putString("FirstName", firstName);
         editor.apply();
     }
 }

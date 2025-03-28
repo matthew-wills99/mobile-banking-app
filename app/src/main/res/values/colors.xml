@@ -2,10 +2,14 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="account_login_fragment_color">#857FE9AD</color>
-    <color name="card_login_fragment_color">#85E97FBB</color>
-    <color name="account_accent_color">#85E97FBB</color>
-    <color name="card_accent_color">#857FE9AD</color>
+    <color name="primary_color">#857FE9AD</color>
+    <color name="secondary_color">#85E97FBB</color>
     <color name="text_color">#333333</color>
     <color name="login_background_color">#FAFAFA</color>
+
+    <color name="light_gray">#F5F5F5</color>
+    <color name="dark_gray">#757575</color>
+    <color name="green">#4CAF50</color>
+    <color name="red">#F44336</color>
+    <color name="blue">#3653F4</color>
 </resources>

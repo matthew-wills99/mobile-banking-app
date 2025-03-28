@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        app:boxStrokeColor="@color/account_accent_color"
+        app:boxStrokeColor="@color/primary_color"
         app:boxStrokeWidth="2dp"
         android:hint="Email"
         app:errorEnabled="true">
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/emailInputLayout"
         android:layout_marginTop="16dp"
-        app:boxStrokeColor="@color/account_accent_color"
+        app:boxStrokeColor="@color/primary_color"
         app:boxStrokeWidth="2dp"
         android:hint="Password"
         app:errorEnabled="true">
@@ -64,5 +64,5 @@
         android:layout_marginTop="24dp"
         android:text="Submit"
         android:textColor="@color/text_color"
-        android:backgroundTint="@color/account_accent_color" />
+        android:backgroundTint="@color/secondary_color" />
 </RelativeLayout>

@@ -8,14 +8,13 @@
     android:layout_marginStart="16dp"
     android:background="@drawable/card_login_fragment_background">
 
-    <!-- Card Number Input -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/cardNumberInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:hint="Card Number"
-        app:boxStrokeColor="@color/card_accent_color"
+        app:boxStrokeColor="@color/primary_color"
         app:boxStrokeWidth="2dp"
         app:errorEnabled="true"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -46,7 +45,7 @@
             android:layout_weight="1"
             android:layout_marginEnd="8dp"
             android:hint="Month"
-            app:boxStrokeColor="@color/card_accent_color"
+            app:boxStrokeColor="@color/primary_color"
             app:boxStrokeWidth="2dp"
             app:errorEnabled="true"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -68,7 +67,7 @@
             android:layout_weight="1"
             android:layout_marginEnd="8dp"
             android:hint="Year"
-            app:boxStrokeColor="@color/card_accent_color"
+            app:boxStrokeColor="@color/primary_color"
             app:boxStrokeWidth="2dp"
             app:errorEnabled="true"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -89,7 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="CVV"
-            app:boxStrokeColor="@color/card_accent_color"
+            app:boxStrokeColor="@color/primary_color"
             app:boxStrokeWidth="2dp"
             app:errorEnabled="true"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -112,7 +111,7 @@
         android:layout_below="@id/cardInfoInputLayout"
         android:layout_marginTop="16dp"
         android:hint="PIN"
-        app:boxStrokeColor="@color/card_accent_color"
+        app:boxStrokeColor="@color/primary_color"
         app:boxStrokeWidth="2dp"
         app:errorEnabled="true"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -136,5 +135,5 @@
         android:layout_marginTop="24dp"
         android:text="Submit"
         android:textColor="@color/text_color"
-        android:backgroundTint="@color/card_accent_color"/>
+        android:backgroundTint="@color/primary_color"/>
 </RelativeLayout>

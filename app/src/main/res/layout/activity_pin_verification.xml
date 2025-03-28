@@ -28,6 +28,8 @@
             android:id="@+id/verifyButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/primary_color"
+            android:textColor="@color/text_color"
             android:text="Verify"
             android:layout_marginTop="16dp" />
 
